@@ -1,0 +1,334 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "ChatServer",
+      "description": "A chat server app for one-to-one msg service",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      },
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:8080/"
+      }
+    ],
+    "tags": [
+        {
+            "name": "Auth",
+            "description": "APIs for authentication module"
+        },
+        {
+            "name": "User",
+            "description": "APIs for basic user operations"
+        }
+    ],
+    "paths": {
+        "/chat/login": {
+            "post": {
+                "summary": "To login users",
+                "tags": [
+                  "Auth"
+                ],
+                "description": "Login a user",
+                "requestBody": {
+                  "description": "User credentials to login",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/loginUser"
+                      }
+                    }
+                  },
+                  "required": true
+                },
+                "responses": {
+                  "200": {
+                    "description": "User login successful",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                              "token": {
+                                "type": "string"
+                              },
+                              "response": {
+                                "type": "string"
+                              }
+                            }
+                        }
+                      }
+                    }
+                  },
+                  "401": {
+                    "description": "Authentication failed",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/components/schemas/error-response"
+                        }
+                      }
+                    }
+                  },
+                  "422": {
+                    "description": "Invalid request data",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/components/schemas/error-response"
+                        }
+                      }
+                    }
+                  },
+                  "500": {
+                    "description": "Internal Server Error",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/components/schemas/error-response"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+        },
+        "/chat/register": {
+            "post": {
+                "summary": "To register user account",
+                "tags": [
+                  "Auth"
+                ],
+                "description": "Register a user in DB",
+                "requestBody": {
+                  "description": "User credentials to register profile",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                            "userName": {"type": "string"},
+                            "email": {"type": "string"},
+                            "pass": {"type": "string", "example": "enter_password"}
+                        }
+                      }
+                    }
+                  },
+                  "required": true
+                },
+                "responses": {
+                  "201": {
+                    "description": "User registration successful",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                              "data": {
+                                "type": "object"
+                              },
+                              "response": {
+                                "type": "string"
+                              }
+                            }
+                        }
+                      }
+                    }
+                  },
+                  "400": {
+                    "description": "Bad request, user registration failed",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/components/schemas/error-response"
+                        }
+                      }
+                    }
+                  },
+                  "422": {
+                    "description": "Invalid request data",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/components/schemas/error-response"
+                        }
+                      }
+                    }
+                  },
+                  "500": {
+                    "description": "Internal Server Error",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/components/schemas/error-response"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+        },
+        "/chat/inbox": {
+            "get": {
+                "summary": "Get Inbox msgs",
+                "tags": [
+                  "User"
+                ],
+                "security": [
+                    {
+                      "bearerAuth": []
+                    }
+                  ],
+                "description": "Fetch inbox messages for user",
+                "responses": {
+                  "200": {
+                    "description": "Operation successful",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                              "data": {
+                                "type": "array"
+                              },
+                              "response": {
+                                "type": "string"
+                              }
+                            }
+                        }
+                      }
+                    }
+                  },
+                  "401": {
+                    "description": "Authentication failed",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/components/schemas/error-response"
+                        }
+                      }
+                    }
+                  },
+                  "500": {
+                    "description": "Internal Server Error",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/components/schemas/error-response"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+        },
+        "/chat/send-msg": {
+            "post": {
+                "summary": "Send msg to users",
+                "tags": [
+                  "User"
+                ],
+                "requestBody": {
+                    "description": "msg and receiver mail",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                              "to": {"type": "string", "example": "receiver_mail"},
+                              "text": {"type": "string", "example": "enter_msg"}
+                          }
+                        }
+                      }
+                    },
+                    "required": true
+                  },
+                "security": [
+                    {
+                      "bearerAuth": []
+                    }
+                  ],
+                "description": "To send msg",
+                "responses": {
+                  "201": {
+                    "description": "Operation successful",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                              "data": {
+                                "type": "array"
+                              },
+                              "response": {
+                                "type": "string"
+                              }
+                            }
+                        }
+                      }
+                    }
+                  },
+                  "401": {
+                    "description": "Authentication failed",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/components/schemas/error-response"
+                        }
+                      }
+                    }
+                  },
+                  "422": {
+                    "description": "Data validation failed",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/components/schemas/error-response"
+                        }
+                      }
+                    }
+                  },
+                  "500": {
+                    "description": "Internal Server Error",
+                    "content": {
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/components/schemas/error-response"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+        },
+        "/chat/dummy": {}
+    },
+    "components": {
+      "schemas": {
+          "loginUser": {
+              "type": "object",
+              "properties": {
+                  "email": {"type": "string"},
+                  "pass": {"type": "string", "example": "enter_password"}
+              }
+          },
+          "error-response": {
+              "type": "object",
+              "properties": {
+                  "errors": {"type": "object"},
+                  "msg": {"type": "string"}
+              }
+          }
+      },
+      "securitySchemes": {
+        "bearerAuth": {
+          "type": "http",
+          "description": "JWT Authorization header using the Bearer scheme.",
+          "scheme": "bearer",
+          "bearerFormat": "JWT"
+        }
+      }
+    }
+  }

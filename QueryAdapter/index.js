@@ -1,5 +1,5 @@
 const moduleName = "[QueryAdapter]"
-const logger = require("/third-party/logger")(moduleName)
+const logger = require("../third-party/logger")(moduleName)
 
 const queryAdapter = async (queryObject) => {
     const {query, model, body, filter, projection, options} = queryObject;

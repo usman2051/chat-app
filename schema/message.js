@@ -7,4 +7,6 @@ const Schema = new mongoose.Schema({
 },
 {timestamps: true});
 
+Schema.index({to: 1, from: 1})
+
 module.exports.MessageSchema = mongoose.model("Message",Schema)
