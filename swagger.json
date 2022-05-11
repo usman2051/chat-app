@@ -224,6 +224,84 @@
                 }
               }
         },
+        "/chat/search-inbox": {
+          "post": {
+              "summary": "Search Inbox msgs",
+              "tags": [
+                "User"
+              ],
+              "security": [
+                  {
+                    "bearerAuth": []
+                  }
+                ],
+                "requestBody": {
+                  "description": "Phrase to search in inbox",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                            "searchPhrase": {"type": "string"}
+                        }
+                      }
+                    }
+                  },
+                  "required": true
+                },
+              "description": "Fetch inbox messages for user",
+              "responses": {
+                "200": {
+                  "description": "Operation successful",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                            "data": {
+                              "type": "array"
+                            },
+                            "response": {
+                              "type": "string"
+                            }
+                          }
+                      }
+                    }
+                  }
+                },
+                "401": {
+                  "description": "Authentication failed",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/error-response"
+                      }
+                    }
+                  }
+                },
+                "422": {
+                  "description": "Validations failed",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/error-response"
+                      }
+                    }
+                  }
+                },
+                "500": {
+                  "description": "Internal Server Error",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "$ref": "#/components/schemas/error-response"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+      },
         "/chat/send-msg": {
             "post": {
                 "summary": "Send msg to users",
@@ -317,8 +395,8 @@
           "error-response": {
               "type": "object",
               "properties": {
-                  "errors": {"type": "object"},
-                  "msg": {"type": "string"}
+                  "data": {"type": "object"},
+                  "error": {"type": "string"}
               }
           }
       },
