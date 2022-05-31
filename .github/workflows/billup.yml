@@ -1,4 +1,4 @@
-name: SonarCloud analysis
+name: kuch bhi bhai
 on:
   push:
     branches: [ main ]
