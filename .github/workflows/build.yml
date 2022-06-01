@@ -1,4 +1,4 @@
-name: kuch bhi bhai
+name: renamed tests
 on:
   push:
     branches: [ main ]
@@ -17,7 +17,7 @@ jobs:
         run: npm
       - name: Test and coverage
         run: npm jest --coverage
-        
+
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
