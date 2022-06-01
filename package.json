@@ -19,5 +19,11 @@
     "mongoose": "^6.3.0",
     "swagger-ui-express": "^4.3.0",
     "winston": "^3.7.2"
+  },
+  "devDependencies": {
+    "jest-sonar-reporter": "^2.0.0"
+  },
+  "jest": {
+    "testResultsProcessor": "jest-sonar-reporter"
   }
 }
