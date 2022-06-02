@@ -26,9 +26,3 @@ const server = http.createServer(app)
 server.listen(process.env.HTTP_PORT, function() {
     console.log("Server listening on port", process.env.HTTP_PORT)
 })
-
-console.log("this is a log")
-console.error("this is error")
-const errorObject = "some error"
-
-errorObject?console.log("good"):console.error("bad")

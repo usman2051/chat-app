@@ -12,3 +12,10 @@ module.exports = {
     sendSuccessResponse,
     sendFailureResponse
 }
+
+
+console.log("this is a log")
+console.error("this is error")
+const errorObject = "some error"
+
+errorObject?console.log("good"):console.error("bad")
