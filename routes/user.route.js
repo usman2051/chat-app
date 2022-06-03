@@ -7,6 +7,7 @@ const router = express.Router()
 
 router.get("/inbox", validateToken, controller.getInbox)
 router.post("/send-msg", validateToken, validator.sendMsg, controller.sendMessage)
+router.post("/search-inbox", validateToken, validator.searchInbox, controller.searchInbox)
 router.patch("/update/:id",)
 
 module.exports = router
