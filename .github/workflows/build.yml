@@ -18,7 +18,7 @@ jobs:
       - name: InstaLL DepenDenCIEs
         run: npm install
       - name: instaLL JesT
-        run: sudo npm install jest
+        run: sudo npm install -g jest
       - name: run some Tests
         run: npm run test
       - name: SonarCloud SCAn!!
