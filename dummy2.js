@@ -13,4 +13,4 @@ const appendNames = (first, last) => {
     return name
 }
 
-module.exports = {firstName, lastName}
+module.exports = {firstName, lastName, appendNames}
