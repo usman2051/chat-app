@@ -1,18 +1,27 @@
-name: renamed tests
+name: Build
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
   sonarcloud:
-    name: SonarCloud
+    name: SonarCloud St3ps :)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: SonarCloud Scan
+      - name: GeT mAIn brANch
+        run: git fetch origin main
+      - name: InstaLL DepenDenCIEs
+        run: npm install
+      - name: instaLL JesT
+        run: sudo npm install jest
+      - name: run some Tests
+        run: npm run test
+      - name: SonarCloud SCAn!!
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any

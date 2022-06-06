@@ -1,12 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="D:\WORK\ALTEGON\chat-app\test\xyz.test.js">
-    <testCase name="aritmetic test add" duration="3"/>
-    <testCase name="aritmetic test divide" duration="0"/>
-    <testCase name="aritmetic the multiply da" duration="1"/>
-    <testCase name="listing functions da max dy" duration="1"/>
-    <testCase name="listing functions now its min" duration="0"/>
-    <testCase name="advanced functions test avg" duration="0"/>
-    <testCase name="advanced functions power function" duration="1"/>
-  </file>
 </testExecutions>
