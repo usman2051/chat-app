@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1654495451624" clover="3.2.0">
-  <project timestamp="1654495451625" name="All files">
-    <metrics statements="19" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="9" elements="28" coveredelements="28" complexity="0" loc="19" ncloc="19" packages="1" files="2" classes="2"/>
+<coverage generated="1654504511133" clover="3.2.0">
+  <project timestamp="1654504511133" name="All files">
+    <metrics statements="22" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="10" elements="32" coveredelements="32" complexity="0" loc="22" ncloc="22" packages="1" files="2" classes="2"/>
     <file name="dummy.js" path="D:\WORK\ALTEGON\chat-app\dummy.js">
       <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7"/>
       <line num="1" count="1" type="stmt"/>
@@ -18,7 +18,7 @@
       <line num="13" count="1" type="stmt"/>
     </file>
     <file name="dummy2.js" path="D:\WORK\ALTEGON\chat-app\dummy2.js">
-      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
       <line num="1" count="1" type="stmt"/>
       <line num="2" count="1" type="stmt"/>
       <line num="3" count="1" type="stmt"/>
@@ -26,6 +26,9 @@
       <line num="7" count="1" type="stmt"/>
       <line num="8" count="1" type="stmt"/>
       <line num="11" count="1" type="stmt"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="13" count="1" type="stmt"/>
+      <line num="16" count="1" type="stmt"/>
     </file>
   </project>
 </coverage>

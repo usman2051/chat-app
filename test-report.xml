@@ -3,5 +3,15 @@
   <file path="D:\WORK\ALTEGON\chat-app\test\dummy2.test.js">
     <testCase name="names func. first name function" duration="4"/>
     <testCase name="names func. last name func." duration="0"/>
+    <testCase name="names func. append names" duration="1"/>
+  </file>
+  <file path="D:\WORK\ALTEGON\chat-app\test\xyz.test.js">
+    <testCase name="aritmetic test add" duration="3"/>
+    <testCase name="aritmetic test divide" duration="1"/>
+    <testCase name="aritmetic the multiply da" duration="0"/>
+    <testCase name="listing functions da max dy" duration="0"/>
+    <testCase name="listing functions now its min" duration="0"/>
+    <testCase name="advanced functions test avg" duration="0"/>
+    <testCase name="advanced functions power function" duration="0"/>
   </file>
 </testExecutions>
