@@ -8,4 +8,9 @@ const lastName = (name) => {
     return name
 }
 
+const appendNames = (first, last) => {
+    const name = `${first} ${last}`
+    return name
+}
+
 module.exports = {firstName, lastName}
